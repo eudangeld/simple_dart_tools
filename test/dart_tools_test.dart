@@ -22,4 +22,7 @@ void main() {
   test('Testing wrong cpf', () {
     expect(toTest.validateCPF('31499175814'), equals(false));
   });
+  test('Testing cpf with dots', () {
+    expect(toTest.validateCPF('314.991.758-17'), equals(true));
+  });
 }

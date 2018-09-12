@@ -12,6 +12,9 @@ class DartValidators {
   }
 
   bool validateCPF(String cpfNumber) {
+    RegExp regXp = RegExp('[^0-9]');
+    cpfNumber = cpfNumber.replaceAll(regXp, '');
+
     if (cpfNumber == oneEqual)
       return false;
     else if (cpfNumber == twoEqual) return false;
