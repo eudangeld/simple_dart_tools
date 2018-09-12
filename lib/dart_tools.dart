@@ -1,4 +1,4 @@
-class DartTools {
+class DartValidators {
   String oneEqual = '11111111111';
   String twoEqual = '22222222222';
 
@@ -11,7 +11,7 @@ class DartTools {
     return regExp.hasMatch(em);
   }
 
-  bool validaCpf(String cpfNumber) {
+  bool validateCPF(String cpfNumber) {
     if (cpfNumber == oneEqual)
       return false;
     else if (cpfNumber == twoEqual) return false;
