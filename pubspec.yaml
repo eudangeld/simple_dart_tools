@@ -1,0 +1,13 @@
+name: simple_dart_tools
+description: Tools for dart
+author: eudangeld <eudangeld@gmail.com>
+homepage: https://github.com/eudangeld/simple_dart_tools
+version: 0.0.1
+
+environment:
+  sdk: ">=2.0.0-dev <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
