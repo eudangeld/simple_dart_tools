@@ -1,5 +1,11 @@
 # simple_dart_tools
-Simple validators for dart/flotter projects projects
+Simple validators for dart/flotter projects projects.
+
+Validators
+- Validate email
+- Validate Brazilian cpf 
+
+
 
 ## Using on flutter projects
 Add this in your pubspec.yaml file
