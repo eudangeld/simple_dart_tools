@@ -20,7 +20,7 @@ import 'package:simple_dart_tools/dart_tools.dart';
 
 ## Basic Usage
 ```
-DartTools tools = DartTools();
+DartValidators tools = DartValidators();
 if (!tools.validateEmail(value))print('your warning')
 ```
 
