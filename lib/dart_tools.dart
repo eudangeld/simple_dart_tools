@@ -1,7 +1,4 @@
 class DartValidators {
-  String oneEqual = '11111111111';
-  String twoEqual = '22222222222';
-
   bool validateEmail(String em) {
     String p =
         r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
@@ -12,12 +9,15 @@ class DartValidators {
   }
 
   bool validateCPF(String cpfNumber) {
-    RegExp regXp = RegExp('[^0-9]');
-    cpfNumber = cpfNumber.replaceAll(regXp, '');
+    RegExp onlyNumbersRegex = RegExp('[^0-9]');
+    RegExp sequencyRegex = RegExp(r'(.)\1{10,11}');
 
-    if (cpfNumber == oneEqual)
-      return false;
-    else if (cpfNumber == twoEqual) return false;
+    cpfNumber = cpfNumber.replaceAll(onlyNumbersRegex, '');
+
+    print('HasMatch');
+    print(sequencyRegex.hasMatch(cpfNumber));
+
+    if (sequencyRegex.hasMatch(cpfNumber)) return false;
 
     var numbers = cpfNumber.split('');
     int firstDigitMax = 10;
