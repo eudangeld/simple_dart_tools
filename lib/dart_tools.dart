@@ -14,9 +14,6 @@ class DartValidators {
 
     cpfNumber = cpfNumber.replaceAll(onlyNumbersRegex, '');
 
-    print('HasMatch');
-    print(sequencyRegex.hasMatch(cpfNumber));
-
     if (sequencyRegex.hasMatch(cpfNumber)) return false;
 
     var numbers = cpfNumber.split('');
@@ -41,7 +38,6 @@ class DartValidators {
     }
     int secoundDigitVerification = (((soundDigSum * 10) % 11));
     if (secoundDigitVerification == int.parse(numbers[10])) {
-      print('VALIDACPF: CPF VÁLIDO');
       return true;
     } else
       return false;
