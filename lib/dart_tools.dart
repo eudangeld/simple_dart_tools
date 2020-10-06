@@ -1,18 +1,37 @@
 class DartValidators {
-  bool validateEmail(String em) {
-    String p =
-        r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
-
-    RegExp regExp = new RegExp(p);
-
-    return regExp.hasMatch(em);
+  ///
+  /// Validate brazilian phone
+  /// validate with masked input (xx) xxxx-xxxx || (xx) xxxxX-xxxx || xxXXXX-XXXX || xxXXXXX-XXXX
+  bool validatePhone(String phone) {
+    final phoneRegex =
+        RegExp(r'^[\(]?[0-9]{2}[\)]?[-, ]?[0-9]?[0-9]{4}[-]?[0-9]{4}$');
+    return phoneRegex.hasMatch(phone);
   }
 
-  bool validateCPF(String cpfNumber) {
-    RegExp onlyNumbersRegex = RegExp('[^0-9]');
-    RegExp sequencyRegex = RegExp(r'(.)\1{10,11}');
+  ///
+  ///return only numbers string
+  String onlyNumbers(String input) {
+    return input.replaceAll(RegExp('[^0-9]'), '');
+  }
 
-    cpfNumber = cpfNumber.replaceAll(onlyNumbersRegex, '');
+  ///
+  ///Siple method to validate an email
+  ///
+  bool validateEmail(String email) {
+    String emailRegex =
+        r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
+    RegExp regExp = RegExp(emailRegex);
+    return regExp.hasMatch(email);
+  }
+
+  ///
+  ///CPF is a personal register document in Brazil
+  ///Used by BR IRS to identify people.
+  ///Has 11 numerical characters,
+  ///This method validate a real CPF number
+  bool validateCPF(String cpfNumber) {
+    RegExp sequencyRegex = RegExp(r'(.)\1{10,11}');
+    cpfNumber = onlyNumbers(cpfNumber);
 
     if (sequencyRegex.hasMatch(cpfNumber)) return false;
 
