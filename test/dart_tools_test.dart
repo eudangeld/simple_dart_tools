@@ -1,4 +1,4 @@
-import 'package:test/test.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'package:simple_dart_tools/dart_tools.dart';
 
 void main() {
