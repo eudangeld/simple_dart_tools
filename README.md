@@ -7,8 +7,8 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/sonuishaq67/linuxscripts">
-    <img src="Image/logo-readme.png" alt="Logo" width="80" height="80">
+  <a href="https://github.com/eudangeld/simple_dart_tools">
+    <img src="assets/logo-readme.png" alt="Logo" width="80" height="80">
   </a>
   <h3 align="center">LinuxScripts</h3>
 </p>
