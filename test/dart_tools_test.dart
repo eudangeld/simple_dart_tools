@@ -6,8 +6,20 @@ void main() {
   test('Testing phone with empty string', () {
     expect(toTest.validatePhone(''), equals(false));
   });
-  test('Testing phone with wrong number', () {
-    expect(toTest.validatePhone('(11)-9898-8884'), equals(false));
+  test('Testing phone 1', () {
+    expect(toTest.validatePhone('(11)-9898-8884'), equals(true));
+  });
+  test('Testing phone 2', () {
+    expect(toTest.validatePhone('(11ASD)-9898-8884'), equals(false));
+  });
+  test('Testing phone 3', () {
+    expect(toTest.validatePhone('1198988884'), equals(true));
+  });
+  test('Testing phone 4', () {
+    expect(toTest.validatePhone('(11)98988884'), equals(true));
+  });
+  test('Testing phone 5', () {
+    expect(toTest.validatePhone('11 98988884'), equals(true));
   });
   test('Testing email asserting', () {
     expect(toTest.validateEmail('test@test.com.br'), equals(true));
