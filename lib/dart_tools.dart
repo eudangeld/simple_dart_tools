@@ -1,26 +1,31 @@
 class DartValidators {
   ///
   /// Validate brazilian phone
-  bool validatePhone() {
-    String phoneRgexx =
-        r'^\(?[1-9]{2}\)? ?(?:[2-8]|9[1-9])[0-9]{3}\-?[0-9]{4}$';
-    return false;
+  bool validatePhone(String phone) {
+    final phoneRegex =
+        RegExp(r'^\(?[1-9]{2}\)? ?(?:[2-8]|9[1-9])[0-9]{3}\-?[0-9]{4}$');
+
+    return phoneRegex.hasMatch(phone);
   }
 
-  bool validateEmail(String em) {
+  ///
+  ///return only numbers string
+  String onlyNumbers(String input) {
+    return input.replaceAll(RegExp('[^0-9]'), '');
+  }
+
+  bool validateEmail(String email) {
     String emailRegex =
         r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
 
     RegExp regExp = RegExp(emailRegex);
 
-    return regExp.hasMatch(em);
+    return regExp.hasMatch(email);
   }
 
   bool validateCPF(String cpfNumber) {
-    RegExp onlyNumbersRegex = RegExp('[^0-9]');
     RegExp sequencyRegex = RegExp(r'(.)\1{10,11}');
-
-    cpfNumber = cpfNumber.replaceAll(onlyNumbersRegex, '');
+    cpfNumber = onlyNumbers(cpfNumber);
 
     if (sequencyRegex.hasMatch(cpfNumber)) return false;
 
