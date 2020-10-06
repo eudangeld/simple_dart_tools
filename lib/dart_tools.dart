@@ -2,14 +2,16 @@ class DartValidators {
   ///
   /// Validate brazilian phone
   bool validatePhone() {
+    String phoneRgexx =
+        r'^\(?[1-9]{2}\)? ?(?:[2-8]|9[1-9])[0-9]{3}\-?[0-9]{4}$';
     return false;
   }
 
   bool validateEmail(String em) {
-    String p =
+    String emailRegex =
         r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
 
-    RegExp regExp = new RegExp(p);
+    RegExp regExp = new RegExp(emailRegex);
 
     return regExp.hasMatch(em);
   }
