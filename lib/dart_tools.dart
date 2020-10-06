@@ -9,14 +9,17 @@ class DartValidators {
   }
 
   ///
-  ///return only numbers string
+  ///return [string] with only [numbers]
+  ///this method use  replace all on string
+  ///if string contains no [numbers] returs ''
+  ///
   String onlyNumbers(String input) {
     return input.replaceAll(RegExp('[^0-9]'), '');
   }
 
   ///
   ///Siple method to validate an email
-  ///
+  /// return [false] for wrong email
   bool validateEmail(String email) {
     String emailRegex =
         r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
@@ -29,6 +32,8 @@ class DartValidators {
   ///Used by BR IRS to identify people.
   ///Has 11 numerical characters,
   ///This method validate a real CPF number
+  ///return [false] for wrong cpf
+  ///thiis method can be used to generate cpf
   bool validateCPF(String cpfNumber) {
     RegExp sequencyRegex = RegExp(r'(.)\1{10,11}');
     cpfNumber = onlyNumbers(cpfNumber);
