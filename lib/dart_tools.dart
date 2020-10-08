@@ -3,7 +3,7 @@ class DartValidators {
   ///
   ///
   bool validateCep(String cep) {
-    final _cepRegex = RegExp(r'^[0-9]{5}-[\d]{3}$');
+    final _cepRegex = RegExp(r'^[0-9]{5}-?[\d]{3}$');
     return _cepRegex.hasMatch(cep);
   }
 
