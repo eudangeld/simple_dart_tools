@@ -1,4 +1,12 @@
 class DartValidators {
+  ///validate br ceps with regex
+  ///
+  ///
+  bool validateCep(String cep) {
+    final _cepRegex = RegExp(r'^[0-9]{5}-?[\d]{3}$');
+    return _cepRegex.hasMatch(cep);
+  }
+
   ///
   /// Validate brazilian phone
   /// validate with masked input (xx) xxxx-xxxx || (xx) xxxxX-xxxx || xxXXXX-XXXX || xxXXXXX-XXXX
