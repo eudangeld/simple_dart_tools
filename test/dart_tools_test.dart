@@ -3,6 +3,15 @@ import 'package:simple_dart_tools/dart_tools.dart';
 
 void main() {
   DartValidators toTest = DartValidators();
+  test('Testing invalid CEP', () {
+    expect(toTest.validateCep(''), equals(false));
+  });
+  test('Testing valid CEP', () {
+    expect(toTest.validateCep('11030-400'), equals(true));
+  });
+  test('Testing valid CEP', () {
+    expect(toTest.validateCep('11030400'), equals(true));
+  });
   test('Testing phone with empty string', () {
     expect(toTest.validatePhone(''), equals(false));
   });
